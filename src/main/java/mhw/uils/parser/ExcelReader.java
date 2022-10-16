@@ -138,6 +138,7 @@ public class ExcelReader {
             } else {
                 workbook = new XSSFWorkbook(fis);
             }
+            fis.close();
         } catch (Exception e) {
             throw new ExcelReadException(e.getMessage());
         }
