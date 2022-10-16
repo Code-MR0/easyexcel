@@ -14,5 +14,5 @@ public class ColumnConfig {
     String id;
     String chName;
     String enName;
-    List<ColumRule> columRules;
+    List<ColumnRule> columnRules;
 }

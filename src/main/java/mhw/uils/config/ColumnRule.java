@@ -10,8 +10,8 @@ import java.util.List;
  * @author hongweima
  */
 @Data
-public class ColumRule {
+public class ColumnRule {
     String type;
     String errorMsg;
-    List<ColumRuleDetail> ruleDetails;
+    List<ColumnRuleDetail> ruleDetails;
 }

@@ -8,7 +8,7 @@ import lombok.Data;
  * @author hongweima
  */
 @Data
-public class ColumRuleDetail {
+public class ColumnRuleDetail {
     String name;
     String value;
 }

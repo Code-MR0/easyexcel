@@ -1,7 +1,7 @@
 package mhw.uils.parser;
 
-import mhw.uils.config.ColumRule;
-import mhw.uils.config.ColumRuleDetail;
+import mhw.uils.config.ColumnRule;
+import mhw.uils.config.ColumnRuleDetail;
 import mhw.uils.config.ColumnConfig;
 import mhw.uils.config.ExcelConfig;
 import mhw.uils.constant.ExcelConstant;
@@ -38,9 +38,9 @@ public class ExcelXmlParser {
             } catch (DocumentException e) {
                 throw new XmlParserException(e.getMessage());
             }
+            excelConfig.setSheetNumber(Integer.parseInt(root.attributeValue("id")));
             excelConfig.setDataStartLine(Integer.parseInt(root.attributeValue("data-start-line")));
             excelConfig.setMaxLine(Integer.parseInt(root.attributeValue("max-line")));
-            excelConfig.setFileName(fileFullName);
             excelConfig.setFileParser(root.attributeValue("file-parser"));
 
             // 解析列配置
@@ -66,28 +66,28 @@ public class ExcelXmlParser {
         }
         Element rules = element.element("rules");
         List<Element> ruleList = rules.elements("rule");
-        ArrayList<ColumRule> columRules = new ArrayList<>(ruleList.size());
-        ruleList.forEach(e -> columRules.add(getColumRule(e)));
-        columnConfig.setColumRules(columRules);
+        ArrayList<ColumnRule> columnRules = new ArrayList<>(ruleList.size());
+        ruleList.forEach(e -> columnRules.add(getColumRule(e)));
+        columnConfig.setColumnRules(columnRules);
 
         return columnConfig;
     }
 
-    private static ColumRule getColumRule(Element element) {
-        ColumRule columRule = new ColumRule();
-        columRule.setType(element.attributeValue("type"));
-        columRule.setErrorMsg(element.attributeValue("error-msg"));
+    private static ColumnRule getColumRule(Element element) {
+        ColumnRule columnRule = new ColumnRule();
+        columnRule.setType(element.attributeValue("type"));
+        columnRule.setErrorMsg(element.attributeValue("error-msg"));
 
         // 解析列规则详情
         List<Element> paramList = element.elements("param");
-        ArrayList<ColumRuleDetail> ruleDetails = new ArrayList<>(paramList.size());
+        ArrayList<ColumnRuleDetail> ruleDetails = new ArrayList<>(paramList.size());
         paramList.forEach(e -> ruleDetails.add(getColumRuleDetails(e)));
-        columRule.setRuleDetails(ruleDetails);
-        return columRule;
+        columnRule.setRuleDetails(ruleDetails);
+        return columnRule;
     }
 
-    private static ColumRuleDetail getColumRuleDetails(Element element) {
-        ColumRuleDetail ruleDetail = new ColumRuleDetail();
+    private static ColumnRuleDetail getColumRuleDetails(Element element) {
+        ColumnRuleDetail ruleDetail = new ColumnRuleDetail();
         ruleDetail.setName(element.attributeValue("name"));
         ruleDetail.setValue(element.attributeValue("value"));
         return ruleDetail;

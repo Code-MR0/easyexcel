@@ -11,6 +11,7 @@ import java.util.List;
  */
 @Data
 public class ExcelConfig {
+    int sheetNumber;
     String fileName;
     String fileParser;
     String fileTemplate;

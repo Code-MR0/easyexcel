@@ -6,5 +6,7 @@ package mhw.uils.constant;
  * @author hongweima
  */
 public class ExcelConstant {
-    public static String RULES = "rules";
+    public static final String RULES = "rules";
+    public static final String EXCEL_XLS = ".xls";
+    public static final String EXCEL_XLSX = ".xlsx";
 }
