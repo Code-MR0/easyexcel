@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tempalte data-start-line="2" max-line="500" file-parser="excelReaderFileParser"
+          tempalte-parser="publicTemplateParser">
+    <field id="0" chName="姓名" enName="name"/>
+    <field id="1" chName="性别" enName="sex">
+        <rules>
+            <rule type="subString" error-msg="">
+                <param name="beginIndex" value="0"/>
+                <param name="endIndex" value="1"/>
+            </rule>
+        </rules>
+    </field>
+    <field id="2" chName="学号" enName="number">
+        <rules>
+            <rule type="length" error-msg="字段长度不符合要求">
+                <param name="length" value="12"/>
+            </rule>
+        </rules>
+    </field>
+    <field id="3" chName="地址" enName="address">
+        <rules>
+            <rule type="range" error-msg="字段长度不在规定范围内">
+                <param name="minLength" value="0"/>
+                <param name="maxLength" value="50"/>
+            </rule>
+        </rules>
+    </field>
+</tempalte>
