@@ -92,9 +92,4 @@ public class ExcelXmlParser {
         ruleDetail.setValue(element.attributeValue("value"));
         return ruleDetail;
     }
-
-    public static void main(String[] args) {
-        ExcelConfig xmlConfig = getConfig("/Users/hongweima/IdeaProjects/project/easyexcel/easyexcel/src/main/resources/xml/demo.xml");
-        System.out.println(xmlConfig.toString());
-    }
 }
